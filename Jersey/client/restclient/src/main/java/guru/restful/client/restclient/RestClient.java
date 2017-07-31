@@ -34,9 +34,19 @@ public class RestClient {
 		System.out.println(response.readEntity(UserInfo.class).getName());
 		//System.out.println(response.readEntity(String.class));
 		
-		//to the post method in my rest api
+		//to the post method in my rest api //post.(Entity.json(object)) to send an object which convets into json in request post body
 		Response response1 = client.target("http://localhost:8080/restprovider/webapi/users").request().post(null);
 		System.out.println(response1.readEntity(String.class));
+		
+		//gets mapped in provider based on media type
+		Response response2 = client.target("http://localhost:8080/restprovider/webapi/users/2").request(MediaType.APPLICATION_JSON).get();
+		System.out.println(response2.readEntity(String.class));
+		
+		//have a path param added to the get request
+		WebTarget baseTarget = client.target("http://localhost:8080/restprovider/webapi/users");
+		WebTarget userIDTarget = baseTarget.path("{userId}");
+		Response response3 = userIDTarget.resolveTemplate("userId", "1").request(MediaType.APPLICATION_JSON).get();
+		System.out.println(response3.readEntity(String.class));
 	}
 
 }

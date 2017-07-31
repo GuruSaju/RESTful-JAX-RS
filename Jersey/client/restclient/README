@@ -1,0 +1,9 @@
+Good practices
+
+have target as a base url and not the whole url.
+
+Have a basetarget
+and can have basetarget.path("path to be added to basetarget");
+
+Use Invocations to build requests
+Good in case you have utility methods which build the request 
