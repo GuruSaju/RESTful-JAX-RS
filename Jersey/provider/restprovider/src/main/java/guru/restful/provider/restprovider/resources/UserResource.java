@@ -6,6 +6,7 @@ import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -38,4 +39,29 @@ public class UserResource {
 		return user;
 	}
 	
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<UserInfo> getAllUsersjson(){
+		UserService ms= new UserService();
+		List<UserInfo> listm=ms.getMessages();
+		return listm;
+	}
+	
+	@Path("/{userid}")
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public UserInfo getSpecificUserjson(@PathParam("userid") int id){
+		UserService ms= new UserService();
+		List<UserInfo> listm=ms.getMessages();
+		Optional<UserInfo> useroption = listm.stream().filter(x -> x.getId()==id).findFirst();
+		UserInfo user = useroption.get();
+		return user;
+	}
+	
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	public String post(){
+		
+		return "posted";
+	}
 }
