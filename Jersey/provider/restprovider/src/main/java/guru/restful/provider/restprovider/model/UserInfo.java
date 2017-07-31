@@ -2,38 +2,39 @@ package guru.restful.provider.restprovider.model;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement
+@XmlRootElement //JAX-B to convert to xml by JAX-B
 public class UserInfo {
 
 	
-      private long id;
+      private int id;
       private String city;
       private String name;
       
+      //essential for JSON or XML conversion. Always make sure
       public UserInfo(){
     	  
       }
       
-      public UserInfo(long id,String city,String name){
+      public UserInfo(int id,String city,String name){
     	  this.id=id;
     	  this.city=city;
     	  this.name=name;
       }
 
-	public long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
-	public String getMessage() {
+	public String getCity() {
 		return city;
 	}
 
-	public void setMessage(String message) {
-		this.city = message;
+	public void setCity(String city) {
+		this.city = city;
 	}
 
 	public String getName() {
