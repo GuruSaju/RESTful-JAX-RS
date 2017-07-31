@@ -4,7 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import guru.restful.provider.restprovider.model.UserInfo;
 
-
+/**
+ * 
+ * @author Srisarguru
+ *
+ */
 public class UserService {
 	
 	

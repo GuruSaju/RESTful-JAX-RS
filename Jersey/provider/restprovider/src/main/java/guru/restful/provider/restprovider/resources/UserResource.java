@@ -16,7 +16,11 @@ import guru.restful.provider.restprovider.model.UserInfo;
 import guru.restful.provider.restprovider.service.UserService;
 
 
-
+/**
+ * 
+ * @author Srisarguru
+ *
+ */
 @Path("/users")
 public class UserResource {
 	
